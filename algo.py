@@ -16,11 +16,12 @@ if st.button("Columns Names"):
     st.write(df.columns.tolist())
     
 dataLabel = df[['hate_speech','offensive_language','neither','class','tweet']]
-
-dataLabel['tweet'] = dataLabel['tweet'].str.replace('\W', '')
 dataLabel
 
-X = dataLabel['tweet']
+dataLabel['tweetClean'] = dataLabel['tweet'].str.replace('\W', ' ')
+dataLabel
+
+X = dataLabel['tweetClean']
 X
 y = dataLabel['class']
 y
